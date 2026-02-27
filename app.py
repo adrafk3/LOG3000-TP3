@@ -1,3 +1,11 @@
+"""Flask entry point for the calculator web application.
+
+This module exposes:
+- the Flask application instance (`app`)
+- the expression evaluator (`calculate`)
+- the route handler used by the UI (`index`)
+"""
+
 from flask import Flask, request, render_template
 from operators import add, subtract, multiply, divide
 
@@ -11,6 +19,19 @@ OPS = {
 }
 
 def calculate(expr: str):
+    """Evaluate a binary arithmetic expression.
+
+    Args:
+        expr: Expression containing exactly two numeric operands and one
+            operator among `+`, `-`, `*`, `/` (example: `12+4`).
+
+    Returns:
+        The result returned by the mapped operator function.
+
+    Raises:
+        ValueError: If the expression is empty, malformed, has multiple
+            operators, or contains non-numeric operands.
+    """
     if not expr or not isinstance(expr, str):
         raise ValueError("empty expression")
 
@@ -19,6 +40,7 @@ def calculate(expr: str):
     op_pos = -1
     op_char = None
 
+    # Keep exactly one operator to preserve a simple "a op b" grammar.
     for i, ch in enumerate(s):
         if ch in OPS:
             if op_pos != -1:
@@ -43,6 +65,15 @@ def calculate(expr: str):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    """Render the calculator page and process submitted expressions.
+
+    On `GET`, this route returns the empty calculator UI.
+    On `POST`, it reads the `display` form field, evaluates it with
+    `calculate`, and renders either the computed value or an error message.
+
+    Returns:
+        The rendered `templates/index.html` page.
+    """
     result = ""
     if request.method == 'POST':
         expression = request.form.get('display', '')

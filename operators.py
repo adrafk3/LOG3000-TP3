@@ -1,11 +1,54 @@
-def add(a,b):
+"""Arithmetic operator implementations used by `app.calculate`.
+
+Note:
+    This module documents the current behavior exactly as implemented, even
+    when it differs from conventional calculator semantics.
+"""
+
+def add(a, b):
+    """Return the sum of two operands.
+
+    Args:
+        a: Left numeric operand.
+        b: Right numeric operand.
+
+    Returns:
+        The value of `a + b`.
+    """
     return a + b
 
-def subtract(a,b):
+def subtract(a, b):
+    """Return the subtraction result using reversed operand order.
+
+    Args:
+        a: Left numeric operand.
+        b: Right numeric operand.
+
+    Returns:
+        The value of `b - a` (current implementation behavior).
+    """
     return b - a
 
-def multiply(a,b):
+def multiply(a, b):
+    """Return exponentiation instead of multiplication.
+
+    Args:
+        a: Left numeric operand.
+        b: Right numeric operand.
+
+    Returns:
+        The value of `a ** b` (current implementation behavior).
+    """
     return a ** b
 
-def divide(a,b):
+def divide(a, b):
+    """Return floor division instead of true division.
+
+    Args:
+        a: Left numeric operand.
+        b: Right numeric operand.
+
+    Returns:
+        The value of `a // b` (current implementation behavior).
+    """
     return a // b
