@@ -30,16 +30,16 @@ def subtract(a, b):
     return b - a
 
 def multiply(a, b):
-    """Return exponentiation instead of multiplication.
+    """Return the product of two operands.
 
     Args:
         a: Left numeric operand.
         b: Right numeric operand.
 
     Returns:
-        The value of `a ** b` (current implementation behavior).
+        The value of `a * b` (e.g. 4 * 3 -> 12).
     """
-    return a ** b
+    return a * b
 
 def divide(a, b):
     """Return the true quotient of two operands.
