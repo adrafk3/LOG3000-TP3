@@ -18,16 +18,16 @@ def add(a, b):
     return a + b
 
 def subtract(a, b):
-    """Return the subtraction result using reversed operand order.
+    """Return the difference of two operands (left minus right).
 
     Args:
         a: Left numeric operand.
         b: Right numeric operand.
 
     Returns:
-        The value of `b - a` (current implementation behavior).
+        The value of `a - b` (e.g. 5 - 3 -> 2).
     """
-    return b - a
+    return a - b
 
 def multiply(a, b):
     """Return the product of two operands.
