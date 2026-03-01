@@ -42,13 +42,16 @@ def multiply(a, b):
     return a ** b
 
 def divide(a, b):
-    """Return floor division instead of true division.
+    """Return the true quotient of two operands.
 
     Args:
-        a: Left numeric operand.
-        b: Right numeric operand.
+        a: Left numeric operand (dividend).
+        b: Right numeric operand (divisor).
 
     Returns:
-        The value of `a // b` (current implementation behavior).
+        The value of `a / b` (true division, e.g. 5/2 -> 2.5).
+
+    Raises:
+        ZeroDivisionError: When b is zero.
     """
-    return a // b
+    return a / b

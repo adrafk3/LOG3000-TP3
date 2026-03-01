@@ -30,3 +30,6 @@ python -m unittest tests/test_operators.py -v
 ## Interpretation des resultats
 - `OK`: tous les comportements testes correspondent aux attentes.
 - `FAILED`: au moins un comportement implemente ne respecte pas le contrat attendu d'une calculatrice standard. Ces echecs doivent etre traces via des issues GitHub.
+
+## Branches et tests corriges
+- **fix/division** : corrige la division entiere (`//`) en division reelle (`/`). Sur cette branche, `test_divide_returns_true_quotient` (et `test_divide_by_zero_raises`) passent. Verifier avec : `python3 -m unittest tests/test_operators.py TestOperators.test_divide_returns_true_quotient TestOperators.test_divide_by_zero_raises -v`
